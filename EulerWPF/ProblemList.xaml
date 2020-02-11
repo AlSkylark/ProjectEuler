@@ -10,7 +10,11 @@
 
     <Grid Background="#FFC9C9C9">
 
-        <Image HorizontalAlignment="Left" Height="128" Margin="100,208,0,0" VerticalAlignment="Top" Width="128" Source="res/folder-icon.png" RenderTransformOrigin="0.5,0.5">
+        <Border x:Name="proBorder" BorderBrush="Black" BorderThickness="0,0,0,1" Height="128" Margin="32,32,32,0" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Left" Height="62" Margin="1135,35,0,0" VerticalAlignment="Top" Width="52" Source="res/bin.png"/>
+        </Border>
+
+        <Image x:Name="proImg" HorizontalAlignment="Left" Height="110" Margin="42,46,0,0" VerticalAlignment="Top" Width="102" Source="res/file.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="-1"/>
@@ -20,7 +24,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label Content="Problem X: Title would go here" HorizontalAlignment="Left" Height="82" Margin="242,236,0,0" VerticalAlignment="Top" Width="940" FontSize="48"/>
+        <Label x:Name="proNumber" Content="Problem 1." HorizontalAlignment="Left" Height="82" Margin="158,56,0,0" VerticalAlignment="Top" Width="238" FontSize="48"/>
+        <Label x:Name="proTitle" Content="Title would go here" HorizontalAlignment="Left" Height="60" Margin="401,69,0,0" VerticalAlignment="Top" Width="698" FontSize="36"/>
 
     </Grid>
 </Page>
