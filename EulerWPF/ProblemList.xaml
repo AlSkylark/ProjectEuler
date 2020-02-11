@@ -11,7 +11,7 @@
     <Grid Background="#FFC9C9C9">
 
         <Border x:Name="proBorder" BorderBrush="Black" BorderThickness="0,0,0,1" Height="128" Margin="32,32,32,0" VerticalAlignment="Top">
-            <Image HorizontalAlignment="Left" Height="62" Margin="1135,35,0,0" VerticalAlignment="Top" Width="52" Source="res/bin.png"/>
+            <Image HorizontalAlignment="Left" Height="45" Margin="1165,70,0,0" VerticalAlignment="Top" Width="38" Source="res/bin.png"/>
         </Border>
 
         <Image x:Name="proImg" HorizontalAlignment="Left" Height="110" Margin="42,46,0,0" VerticalAlignment="Top" Width="102" Source="res/file.png" RenderTransformOrigin="0.5,0.5">
