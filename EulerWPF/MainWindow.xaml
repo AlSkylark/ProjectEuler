@@ -56,7 +56,7 @@
                 </EventTrigger>
             </Button.Triggers>
         </Button>
-        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Height="49" Margin="755,504,0,0" VerticalAlignment="Top" Width="140" FontSize="24" Click="BtnExit_Click">
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Height="49" Margin="755,504,0,0" VerticalAlignment="Top" Width="140" FontSize="24">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.Click">
                     <EventTrigger.Actions>
