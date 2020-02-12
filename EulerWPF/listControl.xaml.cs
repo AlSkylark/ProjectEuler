@@ -16,22 +16,17 @@ using System.Windows.Shapes;
 namespace EulerWPF
 {
     /// <summary>
-    /// Interaction logic for ProblemList.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class ProblemList : Page
+    public partial class listControl : UserControl
     {
-        public ProblemList()
+        public listControl()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
-        public int currentNum = 2;
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            listControl newCtl = new listControl();
-            newCtl.Number = "Problem" + currentNum;
-            newCtl.Title = "Some title lel";
-            problemGrid.Children.Add(newCtl);
-            currentNum++;
-        }
+        public string Number { get; set; }
+
+        public string Title { get; set; }
     }
 }

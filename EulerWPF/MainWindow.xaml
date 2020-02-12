@@ -46,10 +46,10 @@
                                 Storyboard.TargetProperty="X"
                                 AccelerationRatio= "0.1"
                                 FillBehavior="HoldEnd"
-                                Duration="0:0:2">
+                                Duration="0:0:1.5">
                                 <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
                                 <LinearDoubleKeyFrame Value="50" KeyTime="0:0:0.1"/>
-                                <LinearDoubleKeyFrame Value="-2500" KeyTime="0:0:2"/>
+                                <LinearDoubleKeyFrame Value="-2500" KeyTime="0:0:1.5"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </BeginStoryboard>
@@ -91,6 +91,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <Frame Content="Frame" HorizontalAlignment="Left" Height="689" VerticalAlignment="Top" Width="1272" Source="/EulerWPF;component/ProblemList.xaml"/>
 
 
     </Grid>
