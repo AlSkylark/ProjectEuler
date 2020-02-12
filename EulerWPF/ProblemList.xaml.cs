@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace EulerWPF
 {
@@ -25,13 +26,16 @@ namespace EulerWPF
             InitializeComponent();
         }
         public int currentNum = 2;
+        public int currentMargin = 250;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             listControl newCtl = new listControl();
             newCtl.Number = "Problem" + currentNum;
             newCtl.Title = "Some title lel";
+            newCtl.Margin = new Thickness(10, currentMargin, 0, 0);
             problemGrid.Children.Add(newCtl);
             currentNum++;
+            currentMargin += 160;
         }
     }
 }

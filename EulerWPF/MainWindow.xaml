@@ -91,7 +91,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Frame Content="Frame" HorizontalAlignment="Left" Height="689" VerticalAlignment="Top" Width="1272" Source="/EulerWPF;component/ProblemList.xaml"/>
 
 
     </Grid>

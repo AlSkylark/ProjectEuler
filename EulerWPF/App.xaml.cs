@@ -13,5 +13,11 @@ namespace EulerWPF
     /// </summary>
     public partial class App : Application
     {
+        void App_Startup(object sender, StartupEventArgs e)
+        {
+            Window1 window = new Window1();
+            window.Show();
+        }
+
     }
 }
