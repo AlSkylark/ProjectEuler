@@ -33,6 +33,17 @@ namespace EulerWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        public class SearchResult
+        {
+            public string Number { get; set; }
+            public string Title { get; set; }
+        }
+
+        private void BtnNext_Click(object sender, RoutedEventArgs e)
+        {
             currentMargin = 0;
             scrollGrid.Children.Clear();
 
@@ -70,31 +81,28 @@ namespace EulerWPF
                 newCtl.HorizontalAlignment = HorizontalAlignment.Left;
                 newCtl.VerticalAlignment = VerticalAlignment.Top;
                 newCtl.Margin = new Thickness(0, currentMargin, 0, 0);
+                //DoubleAnimation newCtlAnim = new DoubleAnimation();
+                //newCtlAnim.
                 scrollGrid.Children.Add(newCtl);
                 currentMargin += 60;
             }
 
-        }
-        public class SearchResult
-        {
-            public string Number { get; set; }
-            public string Title { get; set; }
-        }
-
-        private void BtnNext_Click(object sender, RoutedEventArgs e)
-        {
-            //gridProblemList.Margin = new Thickness(0, 0, 0, 0);
-
-            //HERE I NEED TO RUN THE CODE OF THE TEST BUTTON!!
-
 
             ThicknessAnimationUsingKeyFrames animation = new ThicknessAnimationUsingKeyFrames();
-            //ThicknessKeyFrame key1;
-            //key1.Value = gridProblemList.Margin;
-            //animation.KeyFrames.Add();
+
+            ThicknessKeyFrame key1 = new SplineThicknessKeyFrame();
+            key1.Value = new Thickness(1208, 0, 0, 0);
+            key1.KeyTime = TimeSpan.FromSeconds(0.1);
+
+            ThicknessKeyFrame key2 = new SplineThicknessKeyFrame();
+            key2.Value = new Thickness(0, 0, 0, 0);
+            key2.KeyTime = TimeSpan.FromSeconds(1);
+
+            animation.KeyFrames.Add(key1);
+            animation.KeyFrames.Add(key2);
 
             animation.AccelerationRatio = 0.2;
-            
+            animation.BeginTime = TimeSpan.FromSeconds(.3);
             gridProblemList.BeginAnimation(MarginProperty, animation);
 
         }
