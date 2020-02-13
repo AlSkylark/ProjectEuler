@@ -6,92 +6,107 @@
         xmlns:local="clr-namespace:EulerWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid x:Name="gridAll" RenderTransformOrigin="0.5,0.5">
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <TranslateTransform 
+    <Grid>
+        <Grid x:Name="gridAll" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform 
                     x:Name="gridTransform"
                     X="0" Y="0"
                     
                     />
-            </TransformGroup>
-        </Grid.RenderTransform>
-
-        <Label x:Name="lblTitle" Content="Project Euler" HorizontalAlignment="Left" Margin="122,69,0,0" VerticalAlignment="Top" Height="99" Width="857" FontSize="72" FontFamily="Calibri" Foreground="#FF676799"/>
-        <Label x:Name="lblSolutions" Content="Solutions by Alex Castro" HorizontalAlignment="Left" Margin="122,144,0,0" VerticalAlignment="Top" Height="67" Width="857" FontSize="48" FontFamily="Calibri" Foreground="#FFA2A2A2"/>
-        <Image x:Name="imgEuler" HorizontalAlignment="Left" Height="308" Margin="198,250,0,0" VerticalAlignment="Top" Width="238" Source="res/Leonhard_Euler.jpg" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1" ScaleX="-1"/>
-                    <SkewTransform AngleY="0" AngleX="0"/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="btnNext" 
+            </Grid.RenderTransform>
+
+            <Label x:Name="lblTitle" Content="Project Euler" HorizontalAlignment="Left" Margin="122,69,0,0" VerticalAlignment="Top" Height="99" Width="857" FontSize="72" FontFamily="Calibri" Foreground="#FF676799"/>
+            <Label x:Name="lblSolutions" Content="Solutions by Alex Castro" HorizontalAlignment="Left" Margin="122,144,0,0" VerticalAlignment="Top" Height="67" Width="857" FontSize="48" FontFamily="Calibri" Foreground="#FFA2A2A2"/>
+            <Image x:Name="imgEuler" HorizontalAlignment="Left" Height="308" Margin="198,250,0,0" VerticalAlignment="Top" Width="238" Source="res/Leonhard_Euler.jpg" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button x:Name="btnNext" 
                 Content="Next" 
                 HorizontalAlignment="Left" 
                 Height="73" 
                 Margin="725,425,0,0" 
                 VerticalAlignment="Top" 
                 Width="198" 
-                FontSize="24">
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Button.Click">
-                    <BeginStoryboard>
-                        <Storyboard x:Name="gridStoryboard">
-                            <DoubleAnimationUsingKeyFrames 
+                FontSize="24" Click="BtnNext_Click">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard x:Name="gridStoryboard">
+                                <DoubleAnimationUsingKeyFrames 
                                 Storyboard.TargetName="gridTransform"
                                 Storyboard.TargetProperty="X"
                                 AccelerationRatio= "0.1"
                                 FillBehavior="HoldEnd"
                                 Duration="0:0:1.5">
-                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
-                                <LinearDoubleKeyFrame Value="50" KeyTime="0:0:0.1"/>
-                                <LinearDoubleKeyFrame Value="-2500" KeyTime="0:0:1.5"/>
-                            </DoubleAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Button.Triggers>
-        </Button>
-        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Height="49" Margin="755,504,0,0" VerticalAlignment="Top" Width="140" FontSize="24">
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Button.Click">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation
+                                    <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
+                                    <LinearDoubleKeyFrame Value="50" KeyTime="0:0:0.1"/>
+                                    <LinearDoubleKeyFrame Value="-2500" KeyTime="0:0:1.5"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Height="49" Margin="755,504,0,0" VerticalAlignment="Top" Width="140" FontSize="24">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
                                     Storyboard.TargetName="gridTransform"
                                     Storyboard.TargetProperty="X"
                                     Duration="0:0:0"
                                     To="0"
                                     />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Button.Triggers>
-        </Button>
-        <Separator HorizontalAlignment="Left" Height="12" Margin="82,219,0,0" VerticalAlignment="Top" Width="1032"/>
-        <Image x:Name="imgEuler_Copy" HorizontalAlignment="Left" Height="40" Margin="-249,562,0,0" VerticalAlignment="Top" Width="236" Source="res/Leonhard_Euler.jpg" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
-            <Image.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0.1" EndPoint="1,.8" >
-                    <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="#00000000" Offset="0"/>
-                </LinearGradientBrush>
-            </Image.OpacityMask>
-            <Image.RenderTransform>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Separator HorizontalAlignment="Left" Height="12" Margin="82,219,0,0" VerticalAlignment="Top" Width="1032"/>
+            <Image x:Name="imgEuler_Copy" HorizontalAlignment="Left" Height="40" Margin="-249,562,0,0" VerticalAlignment="Top" Width="236" Source="res/Leonhard_Euler.jpg" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.OpacityMask>
+                    <LinearGradientBrush StartPoint="1,0.1" EndPoint="1,.8" >
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="#00000000" Offset="0"/>
+                    </LinearGradientBrush>
+                </Image.OpacityMask>
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="64.775"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform X="492.109"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+        <Grid x:Name="gridProblemList" Margin="1280,0,-1280,0" RenderTransformOrigin="0.5,0.5" Background="#FFA6A6A6">
+            <Grid.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="-1" ScaleX="1"/>
-                    <SkewTransform AngleY="0" AngleX="64.775"/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform X="492.109"/>
+                    <TranslateTransform 
+                        x:Name="transformProblemList"
+                        X="0"/>
                 </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+            </Grid.RenderTransform>
 
-
+            <Button Content="Button" HorizontalAlignment="Left" Margin="1158,41,0,0" VerticalAlignment="Top" Width="75" Height="40" Click="Button_Click"/>
+            <ScrollViewer HorizontalAlignment="Left" Height="571" Margin="50,90,0,0" VerticalAlignment="Top" Width="1092" VerticalScrollBarVisibility="Auto">
+                <Grid x:Name="scrollGrid"/>
+            </ScrollViewer>
+        </Grid>
     </Grid>
+
 </Window>

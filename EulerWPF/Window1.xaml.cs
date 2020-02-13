@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace EulerWPF
 {
@@ -23,25 +26,57 @@ namespace EulerWPF
         {
             InitializeComponent();
         }
-        public int currentNum = 2;
-        public int currentMargin = 60;
-        
+        //public int currentNum = 1;
+        public int currentMargin = 0;
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            for (int i=0;i<200;i++)
+                currentMargin = 0;
+                scrollGrid.Children.Clear();
+
+            //establish the json string, aka open the damn json lol
+            string json="";
+            using (StreamReader r = new StreamReader(@"C:\Users\Al\source\repos\ProjectEuler\EulerWPF\testjson.json"))
+            {
+                json = r.ReadToEnd();
+            }
+
+            //we open a JObject searching specific thangs
+            JObject problemSearch = JObject.Parse(json);
+
+            //make a list of them JSON objects
+            IList<JToken> results = problemSearch["Problems"].Children().ToList();
+
+            //serialize JSON results into the .NET objects
+            IList<SearchResult> searchResults = new List<SearchResult>();
+            foreach (JToken result in results)
+            {
+                SearchResult jsonSearch = result.ToObject<SearchResult>();
+                searchResults.Add(jsonSearch);
+            }
+
+            //then we SORT this list by the PROBLEMS property
+            IEnumerable<SearchResult> sortedEnum = searchResults.OrderBy(problems => problems.Number);
+            IList<SearchResult> sortedResults = sortedEnum.ToList();
+
+            //then for each object in the json list we make a new listControl
+            foreach(SearchResult thing in sortedResults)
             {
                 listControl newCtl = new listControl();
-                
-                newCtl.Number = "Problem " + currentNum;
-                newCtl.Title = "Some title lel";
+                newCtl.Number = thing.Number;
+                newCtl.Title = thing.Title;
                 newCtl.HorizontalAlignment = HorizontalAlignment.Left;
                 newCtl.VerticalAlignment = VerticalAlignment.Top;
                 newCtl.Margin = new Thickness(0, currentMargin, 0, 0);
                 scrollGrid.Children.Add(newCtl);
-                currentNum++;
                 currentMargin += 60;
             }
 
+        }
+        public class SearchResult
+        {
+            public string Number { get; set; }
+            public string Title { get; set; }
         }
     }
 }

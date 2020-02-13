@@ -19,8 +19,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label x:Name="proNumber" Content ="{Binding Number}"  HorizontalAlignment="Right" Margin="0,0,767,19" Width="142" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Height="44" VerticalAlignment="Bottom"/>
-        <Label x:Name="proTitle" Content="{Binding Title}" Margin="0,0,147,19" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}" Height="41" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="615"/>
+        <Label x:Name="proNumber" Content ="{Binding Number}"  HorizontalAlignment="Right" Margin="0,0,763,19" Width="146" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Height="44" VerticalAlignment="Bottom"/>
+        <Label x:Name="proTitle" Content="{Binding Title}" Margin="0,0,147,19" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}" Height="41" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="611"/>
 
     </Grid>
 </UserControl>

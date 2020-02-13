@@ -1,0 +1,35 @@
+{
+    "Problems":
+    [
+        {
+            "Number":"Problem 1",
+            "Title":"The first title of the problem",
+            "Content":
+            {
+                "Description":"Description",
+                "Explanation":"egh",
+                "Code":"public int something something"
+            }
+        },
+        {
+            "Number":"Problem 3",
+            "Title":"The thiiiiird title of the problem",
+            "Content":
+            {
+                "Description":"Description",
+                "Explanation":"egh",
+                "Code":"public int something something"
+            }
+        },
+        {
+            "Number":"Problem 2",
+            "Title":"The second title of the problem",
+            "Content":
+            {
+                "Description":"Description",
+                "Explanation":"egh",
+                "Code":"public int something something"
+            }
+        }
+    ]
+}
