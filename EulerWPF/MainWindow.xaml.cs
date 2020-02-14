@@ -81,8 +81,7 @@ namespace EulerWPF
                 newCtl.HorizontalAlignment = HorizontalAlignment.Left;
                 newCtl.VerticalAlignment = VerticalAlignment.Top;
                 newCtl.Margin = new Thickness(0, currentMargin, 0, 0);
-                //DoubleAnimation newCtlAnim = new DoubleAnimation();
-                //newCtlAnim.
+                //newCtl.
                 scrollGrid.Children.Add(newCtl);
                 currentMargin += 60;
             }
@@ -104,6 +103,10 @@ namespace EulerWPF
             animation.AccelerationRatio = 0.2;
             animation.BeginTime = TimeSpan.FromSeconds(.3);
             gridProblemList.BeginAnimation(MarginProperty, animation);
+
+        }
+        private void newCtl_Click(object sender, System.EventArgs e)
+        {
 
         }
     }

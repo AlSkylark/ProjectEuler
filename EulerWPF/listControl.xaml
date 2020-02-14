@@ -6,45 +6,65 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EulerWPF"
              mc:Ignorable="d" Width="985" Height="60">
-    <Grid x:Name="proGrid" HorizontalAlignment="Left" Width="986" Height="60" VerticalAlignment="Bottom" Margin="0,0,-1,0">
-        <Grid.Triggers>
-            <EventTrigger RoutedEvent="Grid.MouseEnter">
+
+    <Button  x:Name="proBtn" Style="{StaticResource listButton}">
+        <Button.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
                 <BeginStoryboard>
                     <Storyboard>
                         <ThicknessAnimation Storyboard.TargetName="proImg"
                                             Storyboard.TargetProperty="Margin"
-                                            To="0,0,908,28"
+                                            To="0,0,908,12"
                                             Duration="0:0:0.2"
                                            />
+                        <ColorAnimation Storyboard.TargetName="proNumber"
+                                        Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                        To="Black"
+                                        Duration="0:0:0.2"/>
+                        <ColorAnimation Storyboard.TargetName="proTitle"
+                                        Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                        To="Black"
+                                        Duration="0:0:0.2"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
-            <EventTrigger RoutedEvent="Grid.MouseLeave">
+            <EventTrigger RoutedEvent="Button.MouseLeave">
                 <BeginStoryboard>
                     <Storyboard>
                         <ThicknessAnimation Storyboard.TargetName="proImg"
                                             Storyboard.TargetProperty="Margin"
-                                            To="0,0,915,28"
+                                            To="0,0,915,12"
                                             Duration="0:0:0.1"
                                            />
+                        <ColorAnimation Storyboard.TargetName="proNumber"
+                                        Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                        To="#FF7E7E7E"
+                                        Duration="0:0:0.2"/>
+                        <ColorAnimation Storyboard.TargetName="proTitle"
+                                        Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                        To="#FF7E7E7E"
+                                        Duration="0:0:0.2"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
-        </Grid.Triggers>
-        <Border x:Name="proBorder" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="0,-9,22,0" HorizontalAlignment="Right" Width="945" Height="63" VerticalAlignment="Top"/>
-        <Image Margin="0,22,40,0" Source="res/bin.png" HorizontalAlignment="Right" Width="22" Height="25" VerticalAlignment="Top"/>
-        <Image x:Name="proImg" HorizontalAlignment="Right" Margin="0,5,915,0" Width="46" Source="res/file.png" RenderTransformOrigin="0.5,0.5" Height="43" VerticalAlignment="Top">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1" ScaleX="-1"/>
-                    <SkewTransform AngleY="0" AngleX="0"/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Label x:Name="proNumber" Content ="{Binding Number}"  HorizontalAlignment="Right" Margin="0,13,763,0" Width="146" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Height="44" VerticalAlignment="Top"/>
-        <Label x:Name="proTitle" Content="{Binding Title}" Margin="0,16,147,0" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" Width="611" Height="41" VerticalAlignment="Top"/>
+        </Button.Triggers>
+        <Grid x:Name="proGrid" HorizontalAlignment="Left" Width="986" Height="60" VerticalAlignment="Bottom" Margin="0,0,-1,0">
 
-    </Grid>
+            <Border x:Name="proBorder" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="0,0,22,6" HorizontalAlignment="Right" Width="945" Height="54" VerticalAlignment="Bottom"/>
+            <Image Margin="0,22,40,0" Source="res/bin.png" HorizontalAlignment="Right" Width="22" Height="25" VerticalAlignment="Top"/>
+            <Image x:Name="proImg" Margin="0,0,915,12" Source="res/file.png" RenderTransformOrigin="0.5,0.5" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="46">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label x:Name="proNumber" Content ="{Binding Number}"  HorizontalAlignment="Left" Margin="77,13,0,0" Width="146" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Height="44" VerticalAlignment="Top" Foreground="#FF7E7E7E"/>
+            <Label x:Name="proTitle" Content="{Binding Title}" Margin="228,16,0,0" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Left" Width="611" Height="41" VerticalAlignment="Top" Foreground="#FF7E7E7E"/>
+
+        </Grid>
+    </Button>
 </UserControl>
