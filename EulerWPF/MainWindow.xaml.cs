@@ -23,17 +23,21 @@ namespace EulerWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int currentMargin = 0;
+        //private string solTitle = "";
+        //private string solNumber = "";
 
         public MainWindow()
         {
             InitializeComponent();
         }
-        //public int currentNum = 1;
-        public int currentMargin = 0;
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public string UserNameIni
         {
-            
+            get
+            {
+                return Properties.Settings.Default.UserName;
+            }
         }
 
         public class SearchResult
@@ -105,9 +109,15 @@ namespace EulerWPF
             gridProblemList.BeginAnimation(MarginProperty, animation);
 
         }
+
         private void newCtl_Click(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 
