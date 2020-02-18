@@ -123,8 +123,9 @@
                 </Image.Triggers>
             </Image>
             <ScrollViewer HorizontalAlignment="Left" Height="571" Margin="90,100,0,0" VerticalAlignment="Top" Width="1092" VerticalScrollBarVisibility="Auto">
-                <Grid x:Name="scrollGrid"/>
+                <StackPanel x:Name="scrollStack"/>
             </ScrollViewer>
+            <Label x:Name="lblSolutions_Copy" Content="Problem List" HorizontalAlignment="Left" Margin="110,28,0,0" VerticalAlignment="Top" Height="67" Width="736" FontSize="48" FontFamily="Calibri" Foreground="#FFA2A2A2"/>
         </Grid>
         <Grid x:Name="gridSolution" HorizontalAlignment="Left" Height="689" Margin="2560,0,-2560,0" VerticalAlignment="Top" Width="1280" Background="White">
             <Image x:Name="proArrow2" HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="63" Source="res/arrow.png" Cursor="Hand">

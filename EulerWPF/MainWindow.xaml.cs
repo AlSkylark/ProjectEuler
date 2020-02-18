@@ -48,8 +48,7 @@ namespace EulerWPF
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
-            currentMargin = 0;
-            scrollGrid.Children.Clear();
+            scrollStack.Children.Clear();
 
             //establish the json string, aka open the damn json lol
             string json = "";
@@ -84,10 +83,11 @@ namespace EulerWPF
                 newCtl.Title = thing.Title;
                 newCtl.HorizontalAlignment = HorizontalAlignment.Left;
                 newCtl.VerticalAlignment = VerticalAlignment.Top;
-                newCtl.Margin = new Thickness(0, currentMargin, 0, 0);
+
+                //TODO: ADD CLICK EVENT HANDLER TO RETRIEVE SHIET
+
                 //newCtl.
-                scrollGrid.Children.Add(newCtl);
-                currentMargin += 60;
+                scrollStack.Children.Add(newCtl);
             }
 
 

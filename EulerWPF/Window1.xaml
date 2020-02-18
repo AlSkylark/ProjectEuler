@@ -10,10 +10,11 @@
 
         <Button Content="Button" HorizontalAlignment="Left" Margin="1158,41,0,0" VerticalAlignment="Top" Width="75" Height="40" Click="Button_Click"/>
         <ScrollViewer HorizontalAlignment="Left" Height="571" Margin="50,90,0,0" VerticalAlignment="Top" Width="1092" VerticalScrollBarVisibility="Auto">
-            <Grid x:Name="scrollGrid">
-                <local:listControl Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFF5FBFF">
-                </local:listControl>
-            </Grid>
+            <StackPanel x:Name="scrollGrid">
+                <local:contentViewer>
+                </local:contentViewer>
+                <local:contentViewer Width="292"></local:contentViewer>
+            </StackPanel>
         </ScrollViewer>
 
     </Grid>

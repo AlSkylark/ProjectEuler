@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="EulerWPF.contentViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EulerWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!--<UserControl.Resources>
+        <Style TargetType="{x:Type local:contentViewer}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:contentViewer}">
+                        <Grid>
+                            <StackPanel>
+                                <Button Style="{StaticResource listButton}" HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="LabelName" Grid.Column="0"></Label>
+                                        <Label Content="4" FontFamily="Webdings" Grid.Column="1" Margin="0,4,0,0"/>
+                                    </Grid>
+                                </Button>
+                                <Border BorderThickness="0,1,0,0" BorderBrush="Black">
+                                    <StackPanel>
+                                        <TextBlock Text="This is where the whatever will go" Margin="15,0,0,0"></TextBlock>
+                                        <ContentPresenter/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>-->
+    <Grid>
+        <StackPanel>
+            <Button x:Name="contentButton" Style="{StaticResource listButton}" HorizontalAlignment="Left" Click="ContentButton_Click">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="contentName" Content="LabelName" Grid.Column="0"></Label>
+                    <Label x:Name="contentArrow" Content="4" FontFamily="Webdings" Grid.Column="1" Margin="0,4,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform x:Name="arrowRotation" Angle="0"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                </Grid>
+            </Button>
+            <Border x:Name="mainContent" BorderThickness="0,1,0,0" BorderBrush="Black" MaxHeight ="1">
+                <StackPanel x:Name="mainStack">
+                    <TextBox Style="{StaticResource noStyleTextBox}" IsReadOnly="True" Text="This is where the whatever will go" Margin="15,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" />
+                    <ContentPresenter/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>
