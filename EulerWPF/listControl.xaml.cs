@@ -23,7 +23,7 @@ namespace EulerWPF
         public listControl()
         {
             InitializeComponent();
-            DataContext = this;
+            //DataContext = this;
         }
         private string hNumber = "Problem 1";
         private string hTitle = "Here's a title";
